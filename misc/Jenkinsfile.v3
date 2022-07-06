@@ -1,5 +1,4 @@
 node {
-   tools {nodejs "node"}
    def commit_id
    stage('Preparation') {
      checkout scm
@@ -8,7 +7,7 @@ node {
    }
    stage('test') {
      nodejs(nodeJSInstallationName: 'nodejs') {
-       sh 'npm install --only=dev'
+       sh 'npm install'
        sh 'npm test'
      }
    }
